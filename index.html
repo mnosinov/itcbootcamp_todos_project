@@ -1,29 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
 	<link rel="stylesheet" href="css/styles.css">
 	<link rel="stylesheet" href="css/styles-desktop.css">
-	<link rel="stylesheet" href="css/styles-mobile.css"
+	<link rel="stylesheet" href="css/styles-mobile.css">
   
-  <title>Todo App</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
 
+  <title>Todo App</title>
+	
 </head>
+
 <body>
 
-  Todo
+	<div class="container theme-light">
+		<div class="wrapper">
 
-  <!-- Add dynamic number --> items left
+			<header>
+				<div class="logo">Todo</div>
+				<button class="theme-switcher-btn"><img src="images/icon-moon.svg" alt="Theme Switcher Icon"></button>
+			</header>
 
-  All
-  Active 
-  Completed
+			<main>
+				<section class="create-new-todo-section">
+					<div class="todo">
+						<input type="checkbox">
+						<input type="text" placeholder="Create a new todo...">
+					</div>
+				</section>
 
-  Clear Completed
+				<section class="todo-list-section">
+					<div class="todos">
+						<div class="todo">
+							<input type="checkbox" checked>
+							<input type="text" value="Completed online JavaScript course" class="todo-done">
+						</div>
+						<div class="todo">
+							<input type="checkbox">
+							<input type="text" value="Jog around the park 3x">
+						</div>
+						<div class="todo">
+							<input type="checkbox">
+							<input type="text" value="10 minutes meditation">
+						</div>
+						<div class="todo">
+							<input type="checkbox">
+							<input type="text" value="Read for 1 hour">
+						</div>
+						<div class="todo">
+							<input type="checkbox">
+							<input type="text" value="Pick up groceries">
+						</div>
+						<div class="todo">
+							<input type="checkbox">
+							<input type="text" value="Complete Todo App on Frontend Mentor">
+						</div>
+					</div>
+					<div class="todos-footer">
+						<div class="items-left-qnt">5 items left</div>
+						<div class="todos-filter">
+							<button class="todos-filter-all-btn">All</button>
+							<button class="todos-filter-active-btn">Active</button>
+							<button class="todos-filter-completed-btn">Completed</button>
+						</div>
+						<div class="clear-completed-btn">Clear Completed</div>
+					</div>
+				</section>
 
-  Drag and drop to reorder list
+				<footer>
+					<span>Drag and drop to reorder list</span>
+				</footer>
+
+			</main>
+
+		</div> <!--wrapper-->
+	</div> <!--container>
 
 </body>
+
 </html>

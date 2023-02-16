@@ -1,4 +1,15 @@
 /* desktop styles */
 
-@media only screen and (min-width:769px) {
+@media only screen and (min-width:375px) {
+
+	.container.theme-light {
+		background-image: url('../images/bg-desktop-light.jpg');
+		background-repeat: no-repeat;
+	}
+
+	.container.theme-dark {
+		background-image: url('../images/bg-desktop-dark.jpg');
+		background-repeat: no-repeat;
+	}
+
 }
