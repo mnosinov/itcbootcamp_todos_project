@@ -1,0 +1,18 @@
+* {
+  font-family: "Segoe UI", Arial, sans-serif;
+	font-weight: 400;
+	font-size: 16px;
+	box-sizing: border-box;
+	color: #0E2D22;
+}
+
+html, body {
+	margin: 0;
+	padding: 0;
+}
+
+body *, *:before, *:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
