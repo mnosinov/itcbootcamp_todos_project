@@ -9,6 +9,7 @@
 	<link rel="stylesheet" href="css/styles.css">
 	<link rel="stylesheet" href="css/styles-desktop.css">
 	<link rel="stylesheet" href="css/styles-mobile.css">
+	<link rel="stylesheet" href="css/styles-checkbox.css">
   
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,7 +19,7 @@
 	
 </head>
 
-<body>
+<body class="theme-light">
 
 	<div class="container theme-light">
 		<div class="wrapper">
@@ -31,7 +32,7 @@
 			<main>
 				<section class="create-new-todo-section">
 					<div class="todo">
-						<input type="checkbox">
+						<input type="checkbox" class="checkbox" disabled>
 						<input type="text" placeholder="Create a new todo...">
 					</div>
 				</section>
@@ -39,34 +40,35 @@
 				<section class="todo-list-section">
 					<div class="todos">
 						<div class="todo">
-							<input type="checkbox" checked>
+							<input type="checkbox" checked class="checkbox">
 							<input type="text" value="Completed online JavaScript course" class="todo-done">
 						</div>
 						<div class="todo">
-							<input type="checkbox">
+							<input type="checkbox" class="checkbox">
 							<input type="text" value="Jog around the park 3x">
 						</div>
 						<div class="todo">
-							<input type="checkbox">
+							<input type="checkbox" class="checkbox">
 							<input type="text" value="10 minutes meditation">
 						</div>
 						<div class="todo">
-							<input type="checkbox">
+							<input type="checkbox" class="checkbox">
 							<input type="text" value="Read for 1 hour">
 						</div>
 						<div class="todo">
-							<input type="checkbox">
+							<input type="checkbox" class="checkbox">
 							<input type="text" value="Pick up groceries">
 						</div>
 						<div class="todo">
-							<input type="checkbox">
+							<input type="checkbox" class="checkbox">
 							<input type="text" value="Complete Todo App on Frontend Mentor">
 						</div>
 					</div>
+
 					<div class="todos-footer">
 						<div class="items-left-qnt"><span class="items-left-qnt-span">5 items left</span></div>
 						<div class="todos-filter">
-							<button class="todos-filter-all-btn">All</button>
+							<button class="todos-filter-all-btn active-filter">All</button>
 							<button class="todos-filter-active-btn">Active</button>
 							<button class="todos-filter-completed-btn">Completed</button>
 						</div>
