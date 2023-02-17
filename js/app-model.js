@@ -3,8 +3,8 @@ var todos = [
 	{id: 6, title: "Completed online JavaScript course", status: "COMPLETED"},
 	{id: 5, title: "Jog around the park 3x", status: "ACTIVE"},
 	{id: 4, title: "10 minutes meditation", status: "ACTIVE"},
-	{id: 3, title: "Read for 1 hour", status: "ACTIVE"},
-	{id: 2, title: "Pick up groceries", status: "COMPLETED"},
+	{id: 3, title: "Read for 1 hour", status: "COMPLETED"},
+	{id: 2, title: "Pick up groceries", status: "ACTIVE"},
 	{id: 1, title: "Complete Todo App on Frontend Mentor", status: "ACTIVE"}
 ];
 // add orderNumber, by default it is equal to id
@@ -35,7 +35,12 @@ function showTodos() {
 // show active items left quantity
 function showItemsleftQnt() {
 	let itemsLeftQnt = todos.filter( item => item.status === 'ACTIVE').length;
-	itemsLeftQntSpan.innerHTML = `${itemsLeftQnt} items left`;
+	itemsLeftQntSpan.innerHTML = `${pluralize(itemsLeftQnt, 'item')} left`;
+}
+
+// english simple pluralize processor
+function pluralize( count, noun, suffix = 's') {
+  return `${count} ${noun}${count > 1 ? suffix : ''}`;
 }
 
 /* theme switcher ---------------------------------- BEGIN */
