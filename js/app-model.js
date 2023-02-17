@@ -11,7 +11,6 @@ var todos = [
 todos.forEach( item => {
 	item.orderNumber = item.id;
 });
-console.log(todos[1]);
 
 /* initial data --------------------------------END */
 
@@ -81,15 +80,12 @@ function initFilters() {
 // remove buttons initialization
 function initTodoRemoveBtns() {
 	let removeBtns = document.querySelectorAll('.remove-todo-btn');
-	console.log(removeBtns);
 	for (let btn of removeBtns) {
 		btn.addEventListener( 'click', event => {
 			// remove this todo
 			let todoIdToRemove = btn.dataset.id;
-			console.log(todoIdToRemove);
 			// find this todo index in array
 			let todoIndexToRemove = todos.findIndex( item => item.id == todoIdToRemove );
-			console.log(todoIndexToRemove);
 			// remove todo
 			todos.splice(todoIndexToRemove, 1);
 			showTodos();
