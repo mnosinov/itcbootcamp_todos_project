@@ -18,10 +18,20 @@ console.log(todos[1]);
 // show todos list
 function showTodos() {
 	todosDiv.innerHTML = '';
-
+	// apply current filter. One of: all, active, completed
+	let activeFilter = todosFilterDiv.querySelector('.active-filter'); 
+	let filteredTodos = todos.slice();
+	switch (activeFilter.dataset.id) {
+		case 'active':
+			filteredTodos = filteredTodos.filter( item => item.status === 'ACTIVE' );
+			break;
+		case 'completed':
+			filteredTodos = filteredTodos.filter( item => item.status === 'COMPLETED' );
+			break;
+	}
 	// loop in reverse order
-	let orderedTodos = todos.sort( (a, b) => b.orderNumber - a.orderNumber);
-	for (let todo of orderedTodos) {
+	let filteredAndOrderedTodos = filteredTodos.sort( (a, b) => b.orderNumber - a.orderNumber);
+	for (let todo of filteredAndOrderedTodos) {
 		todosDiv.innerHTML += `
 			<div class="todo">
 				<input type="checkbox" class="checkbox" data-id="${todo.id}"
@@ -30,6 +40,7 @@ function showTodos() {
 			</div>
 		`;
 	}
+	showItemsleftQnt();
 }
 
 // show active items left quantity
@@ -41,6 +52,21 @@ function showItemsleftQnt() {
 // english simple pluralize processor
 function pluralize( count, noun, suffix = 's') {
   return `${count} ${noun}${count > 1 ? suffix : ''}`;
+}
+
+// filters handlers initialization
+function initFilters() {
+	let filterBtns = todosFilterDiv.querySelectorAll('.todos-filter-btn');
+	for (let filterBtn of filterBtns) {
+		filterBtn.addEventListener('click', event => {
+			// remove active-filter class from all buttons
+			let btns = todosFilterDiv.querySelectorAll('.todos-filter-btn');
+			btns.forEach( item => item.classList.remove('active-filter') );
+			// set active-filter class to the current button
+			event.target.classList.add('active-filter');
+			showTodos();
+		});
+	}
 }
 
 /* theme switcher ---------------------------------- BEGIN */
@@ -62,5 +88,5 @@ themeSwitcherBtn.addEventListener('click', event => {
 });
 /* theme switcher ---------------------------------- END */
 
+initFilters();
 showTodos();
-showItemsleftQnt();
