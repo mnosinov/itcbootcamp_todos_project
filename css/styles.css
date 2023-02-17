@@ -165,6 +165,19 @@ header {
 	border-bottom: 1px #e3e3e3 solid;
 }
 
+.todo input[type=text]:hover + .remove-todo-btn {
+	display: flex;
+}
+
+.remove-todo-btn:hover {
+	display: flex;
+}
+
+.remove-todo-btn {
+	padding: 19px 25px 19px 0px;
+	cursor: pointer;
+}
+
 .status-COMPLETED {
 	text-decoration: line-through;
 	color: silver !important;

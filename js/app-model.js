@@ -31,14 +31,23 @@ function showTodos() {
 	}
 	// loop in reverse order
 	let filteredAndOrderedTodos = filteredTodos.sort( (a, b) => b.orderNumber - a.orderNumber);
-	for (let todo of filteredAndOrderedTodos) {
-		todosDiv.innerHTML += `
-			<div class="todo">
-				<input type="checkbox" class="checkbox" data-id="${todo.id}"
-					${todo.status === 'COMPLETED'? 'checked': ''} >
-				<input type="text" value="${todo.title}" data-id="${todo.id}" class="status-${todo.status}">
-			</div>
-		`;
+
+	if (filteredAndOrderedTodos.length != 0) {
+		for (let todo of filteredAndOrderedTodos) {
+			todosDiv.innerHTML += `
+				<div class="todo">
+					<input type="checkbox" class="checkbox" data-id="${todo.id}"
+						${todo.status === 'COMPLETED'? 'checked': ''} >
+					<input type="text" value="${todo.title}" data-id="${todo.id}" class="status-${todo.status}">
+					<button class="remove-todo-btn" data-id="${todo.id}">
+						<img src="images/icon-cross.svg" alt="Remove Todo">
+					</button>
+				</div>
+			`;
+		}
+		initTodoRemoveBtns();
+	} else {
+		todosDiv.innerHTML = `<div class="there-is-no-todos">Nothing to show</div>`;
 	}
 	showItemsleftQnt();
 }
@@ -64,6 +73,25 @@ function initFilters() {
 			btns.forEach( item => item.classList.remove('active-filter') );
 			// set active-filter class to the current button
 			event.target.classList.add('active-filter');
+			showTodos();
+		});
+	}
+}
+
+// remove buttons initialization
+function initTodoRemoveBtns() {
+	let removeBtns = document.querySelectorAll('.remove-todo-btn');
+	console.log(removeBtns);
+	for (let btn of removeBtns) {
+		btn.addEventListener( 'click', event => {
+			// remove this todo
+			let todoIdToRemove = btn.dataset.id;
+			console.log(todoIdToRemove);
+			// find this todo index in array
+			let todoIndexToRemove = todos.findIndex( item => item.id == todoIdToRemove );
+			console.log(todoIndexToRemove);
+			// remove todo
+			todos.splice(todoIndexToRemove, 1);
 			showTodos();
 		});
 	}

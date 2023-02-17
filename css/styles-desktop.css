@@ -14,4 +14,7 @@
 		background-position: center top;
 	}
 
+	.remove-todo-btn {
+		display: none;
+	}
 }
