@@ -73,7 +73,8 @@ input[type=text]:focus {
 
 .theme-light button,
 .theme-light .items-left-qnt span,
-.theme-light footer span {
+.theme-light footer span,
+.there-is-no-todos {
 	color: #9B9BA4;
 }
 
@@ -150,15 +151,26 @@ header {
 	width: 100%;
 }
 
+.there-is-no-todos {
+	display: flex;
+	width: 100%;
+	justify-content: center;
+	align-items: center;
+	padding: 20px;
+}
+
 .todo {
 	display: flex;
 	align-items: center;
 	border-bottom: 1px #e3e3e3 solid;
 }
 
-.todo-done {
+.status-COMPLETED {
 	text-decoration: line-through;
 	color: silver !important;
+}
+
+.status-ACTIVE {
 }
 
 .todos-footer {
