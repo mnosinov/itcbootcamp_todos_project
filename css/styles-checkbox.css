@@ -1,4 +1,4 @@
-.theme-light .checkbox {
+.theme-light .complete-checkbox {
 	border-radius: 50%;
 	width: 25px;
 	height: 24px;
@@ -12,20 +12,20 @@
 	margin: 0 28px;
 }
 
-.theme-light .checkbox:checked:hover,
-.theme-light .checkbox:checked:hover,
-.theme-light .checkbox:checked {
+.theme-light .complete-checkbox:checked:hover,
+.theme-light .complete-checkbox:checked:hover,
+.theme-light .complete-checkbox:checked {
 		background: linear-gradient(to right bottom, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
 }
 
-.theme-light .checkbox:hover {
+.theme-light .complete-checkbox:hover {
 	background: linear-gradient(white, white) padding-box,
 		linear-gradient(to right bottom, hsl(192, 100%, 67%), hsl(280, 87%, 65%)) border-box;
   border-radius: 50%;
   border: 1px solid transparent;
 }
 
-.theme-light .checkbox::before {
+.theme-light .complete-checkbox::before {
     content: '';
     position: absolute;
     top: 55%;
@@ -40,6 +40,6 @@
     display: none;
 }
 
-.theme-light .checkbox:checked::before {
+.theme-light .complete-checkbox:checked::before {
     display: block;
 }

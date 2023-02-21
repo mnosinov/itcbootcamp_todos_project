@@ -35,7 +35,7 @@ function showTodos() {
 		for (let todo of filteredAndOrderedTodos) {
 			todosDiv.innerHTML += `
 				<div class="todo">
-					<input type="checkbox" class="checkbox" data-id="${todo.id}"
+					<input type="checkbox" class="complete-checkbox" data-id="${todo.id}"
 						${todo.status === 'COMPLETED'? 'checked': ''} >
 					<input type="text" value="${todo.title}" data-id="${todo.id}" class="status-${todo.status}">
 					<button class="remove-todo-btn" data-id="${todo.id}">
@@ -51,6 +51,11 @@ function showTodos() {
 	showItemsleftQnt();
 }
 
+// init complete checkboxes
+function initCheckboxes() {
+	let completeCheckboxes = document.querySelectorAll('.remove-todo-btn');
+
+}
 // show active items left quantity
 function showItemsleftQnt() {
 	let itemsLeftQnt = todos.filter( item => item.status === 'ACTIVE').length;
@@ -93,6 +98,10 @@ function initTodoRemoveBtns() {
 	}
 }
 
+// get max todos ID
+function getTodosMaxId() {
+	return todos.reduce( (accum, element) => element.id > accum ? element.id : accum, 0);
+}
 /* theme switcher ---------------------------------- BEGIN */
 themeSwitcherBtn.addEventListener('click', event => {
 	let currentTheme;
@@ -111,6 +120,24 @@ themeSwitcherBtn.addEventListener('click', event => {
 	document.body.classList.toggle(themes[nextThemeIndex]);
 });
 /* theme switcher ---------------------------------- END */
+/* create new todo text input ---------------------- BEGIN */
+createNewTodoTxt.addEventListener('keypress', event => {
+	if (event.key === 'Enter' || event.keyCode === 13) {
+		// add new todo
+		newTodoId = getTodosMaxId() + 1;
+		let newTodo = {
+			id: newTodoId,
+			title: createNewTodoTxt.value,
+			status: 'ACTIVE',
+			orderNumber: newTodoId
+		};
+		todos.push(newTodo);
+		showTodos();
+		// clear new todo text input
+		createNewTodoTxt.value = '';
+	}
+});
+/* create new todo text input ---------------------- END */
 
 initFilters();
 showTodos();
