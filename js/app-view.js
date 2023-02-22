@@ -4,4 +4,6 @@ var todosDiv = document.querySelector('.todos');
 var itemsLeftQntSpan = document.querySelector('.items-left-qnt-span');
 var todosFilterDiv = document.querySelector('.todos-filter');
 var createNewTodoTxt = document.querySelector('.create-new-todo-txt');
+var clearCompletedBtn = document.querySelector('.clear-completed-btn');
+
 

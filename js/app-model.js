@@ -158,6 +158,14 @@ createNewTodoTxt.addEventListener('keypress', event => {
 	}
 });
 /* create new todo text input ---------------------- END */
-
+/* clear completed button initialization --------- BEGIN */
+clearCompletedBtn.addEventListener('click', event => {
+	for (let i = 0; i < todos.length; i++) {
+		const todo = todos[i];
+		if (todo.status === 'COMPLETED') todos.splice(i, 1);
+	}
+	showTodos();
+});
+/* clear completed button initialization --------- END */
 initFilters();
 showTodos();
