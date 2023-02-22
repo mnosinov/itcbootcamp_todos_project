@@ -45,6 +45,7 @@ function showTodos() {
 			`;
 		}
 		initTodoRemoveBtns();
+		initCompleteCheckboxes();
 	} else {
 		todosDiv.innerHTML = `<div class="there-is-no-todos">Nothing to show</div>`;
 	}
@@ -98,6 +99,25 @@ function initTodoRemoveBtns() {
 	}
 }
 
+// complete checkboxes initialization
+function initCompleteCheckboxes() {
+	let completeCheckboxes = document.querySelectorAll('.complete-checkbox');
+	for (let chkbx of completeCheckboxes) {
+		chkbx.addEventListener( 'change', event => {
+			// remove this todo
+			let todoChangeStatusId = chkbx.dataset.id;
+			// find this todo index in array
+			let todoIndexToChangStatus = todos.findIndex( item => item.id == todoChangeStatusId );
+			// change status of the  todo
+			if (todos[todoIndexToChangStatus].status === 'ACTIVE')
+				todos[todoIndexToChangStatus].status = 'COMPLETED';
+			else
+				todos[todoIndexToChangStatus].status = 'ACTIVE';
+			showTodos();
+		});
+	}
+}
+//
 // get max todos ID
 function getTodosMaxId() {
 	return todos.reduce( (accum, element) => element.id > accum ? element.id : accum, 0);
