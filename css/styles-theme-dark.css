@@ -22,6 +22,10 @@
 	background-color: #25273c;
 }
 
+.theme-dark .create-new-todo-section input[type=text] {
+	color: white;
+}
+
 .theme-dark .create-new-todo-section .todo {
 	border: none;
 }
