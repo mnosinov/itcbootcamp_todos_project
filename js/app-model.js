@@ -70,14 +70,19 @@ function pluralize( count, noun, suffix = 's') {
 
 // filters handlers initialization
 function initFilters() {
-	let filterBtns = todosFilterDiv.querySelectorAll('.todos-filter-btn');
+	let filterBtns = document.querySelectorAll('.todos-filter-btn');
 	for (let filterBtn of filterBtns) {
 		filterBtn.addEventListener('click', event => {
 			// remove active-filter class from all buttons
-			let btns = todosFilterDiv.querySelectorAll('.todos-filter-btn');
+			let btns = document.querySelectorAll('.todos-filter-btn');
 			btns.forEach( item => item.classList.remove('active-filter') );
-			// set active-filter class to the current button
-			event.target.classList.add('active-filter');
+			// set active-filter class to the current filter buttons
+			let currentActiveFilter = event.target.dataset.id;
+			btns.forEach( item => {
+				if (item.dataset.id === currentActiveFilter) {
+					item.classList.add('active-filter');
+				}
+			});
 			showTodos();
 		});
 	}
