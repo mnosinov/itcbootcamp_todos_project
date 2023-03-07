@@ -9,7 +9,10 @@
 	<link rel="stylesheet" href="css/styles.css">
 	<link rel="stylesheet" href="css/styles-desktop.css">
 	<link rel="stylesheet" href="css/styles-mobile.css">
-	<link rel="stylesheet" href="css/styles-checkbox.css">
+	<link rel="stylesheet" href="css/styles-theme-light-checkbox.css">
+	<link rel="stylesheet" href="css/styles-theme-dark-checkbox.css">
+	<link rel="stylesheet" href="css/styles-theme-light.css">
+	<link rel="stylesheet" href="css/styles-theme-dark.css">
   
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,9 +22,9 @@
 	
 </head>
 
-<body class="theme-light">
+<body class="theme-dark">
 
-	<div class="container theme-light">
+	<div class="container">
 		<div class="wrapper">
 
 			<header>
@@ -57,6 +60,12 @@
 							<button class="clear-completed-btn">Clear Completed</button>
 						</div>
 					</div>
+				</section>
+
+				<section class="todos-filter-mobile">
+					<button class="todos-filter-btn active-filter" data-id="all">All</button>
+					<button class="todos-filter-btn" data-id="active">Active</button>
+					<button class="todos-filter-btn" data-id="completed">Completed</button>
 				</section>
 
 				<footer>

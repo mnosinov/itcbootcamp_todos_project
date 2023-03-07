@@ -1,0 +1,46 @@
+.theme-light {
+}
+
+.theme-light .container {
+	background-color: white;
+}
+
+.theme-light .items-left-qnt {
+}
+
+.theme-light button,
+.theme-light .items-left-qnt span,
+.theme-light footer span,
+.theme-light .there-is-no-todos {
+	color: #9B9BA4;
+}
+
+.theme-light footer {
+}
+
+.theme-light .create-new-todo-section {
+	background-color: white;
+	border: none;
+}
+
+.theme-light .create-new-todo-section .todo {
+	border: none;
+}
+
+.theme-light input[type=text] {
+	color: #56546c;
+}
+
+.theme-light .todo {
+	border-bottom: 1px #e3e3e3 solid;
+}
+
+.theme-light .status-COMPLETED {
+	color: silver !important;
+}
+
+.theme-light .status-ACTIVE {
+}
+.theme-light .todos-filter-mobile {
+}
+

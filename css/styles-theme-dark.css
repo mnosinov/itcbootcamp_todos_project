@@ -1,0 +1,51 @@
+.theme-dark {
+}
+
+.theme-dark .container {
+	background-color: #181824;
+}
+
+.theme-dark .items-left-qnt {
+}
+
+.theme-dark button,
+.theme-dark .items-left-qnt span,
+.theme-dark footer span,
+.theme-dark .there-is-no-todos {
+	color: #575874;
+}
+
+.theme-dark footer {
+}
+
+.theme-dark .create-new-todo-section {
+	background-color: #25273c;
+}
+
+.theme-dark .create-new-todo-section .todo {
+	border: none;
+}
+
+.theme-dark input[type=text] {
+	background-color: #25273c;
+}
+
+.theme-dark .todo-list-section {
+	background-color: #25273c;
+}
+
+.theme-dark .todo {
+	border-bottom: 1px #35374c solid;
+}
+
+.theme-dark .status-COMPLETED {
+	color: #74768D !important;
+}
+
+.theme-dark .status-ACTIVE {
+	color: white !important;
+}
+.theme-dark .todos-filter-mobile {
+	background-color: #25273c;
+}
+
