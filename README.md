@@ -9,6 +9,7 @@ This is a solution to the [Todo app challenge on Frontend Mentor](https://www.fr
   - [Links](#links)
 - [My process](#my-process)
   - [Built with](#built-with)
+- [Author](#author)
 
 
 ## Overview
@@ -39,3 +40,7 @@ Users should be able to:
 - CSS custom properties
 - Flexbox
 - Mobile-first workflow
+
+## Author
+
+- Website - [Add your name here](https://github.com/mnosinov)
