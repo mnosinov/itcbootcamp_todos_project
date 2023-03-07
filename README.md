@@ -43,4 +43,4 @@ Users should be able to:
 
 ## Author
 
-- Website - [Add your name here](https://github.com/mnosinov)
+- Website - [mnosinov](https://github.com/mnosinov)
