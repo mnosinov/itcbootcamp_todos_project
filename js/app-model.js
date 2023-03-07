@@ -126,18 +126,23 @@ function getTodosMaxId() {
 themeSwitcherBtn.addEventListener('click', event => {
 	let currentTheme;
 	for (let cls of document.body.classList) {
-		if (themes.includes(cls)) {
-			currentTheme = cls;
-			break;
+		for (let theme of themes) {
+			if (theme.name === cls) {
+				currentTheme = theme;
+				break;
+			}
 		}
+		if (currentTheme !== undefined) break;
 	}
-	if (currentTheme === undefined) {
-		currentTheme = themes[0];
-	}
+	if (currentTheme === undefined) currentTheme = themes[0];
 	let indexOfCurrentTheme = themes.indexOf(currentTheme);
 	let nextThemeIndex = (indexOfCurrentTheme + 1) % themes.length;
-	document.body.classList.toggle(themes[indexOfCurrentTheme]);
-	document.body.classList.toggle(themes[nextThemeIndex]);
+	// change theme class for the body
+	document.body.classList.remove(themes[indexOfCurrentTheme].name);
+	document.body.classList.add(themes[nextThemeIndex].name);
+	// change theme icon
+	themeIconImg.src = themes[indexOfCurrentTheme].icon;
+	themeIconImg.src = themes[nextThemeIndex].icon;
 });
 /* theme switcher ---------------------------------- END */
 /* create new todo text input ---------------------- BEGIN */
