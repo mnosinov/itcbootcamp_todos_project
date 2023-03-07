@@ -50,6 +50,7 @@ function showTodos() {
 		todosDiv.innerHTML = `<div class="there-is-no-todos">Nothing to show</div>`;
 	}
 	showItemsleftQnt();
+	initDragAndDrop();
 }
 
 // init complete checkboxes
@@ -176,5 +177,51 @@ clearCompletedBtn.addEventListener('click', event => {
 	showTodos();
 });
 /* clear completed button initialization --------- END */
+
+/* drag and drop mechanism ----------------------- BEGIN */
+function initDragAndDrop() {
+	let todosForDragAndDrop = document.querySelector('.todo-list-section').querySelectorAll('.todo');
+	console.log(todosForDragAndDrop);
+	let draggedElement;
+	const addDnDEvents = (element) => {
+		element.setAttribute('draggable', 'true');
+		element.addEventListener('dragstart', onDnDStart);
+		element.addEventListener('dragover', (el) => el.preventDefault());
+		element.addEventListener('drop', onDrop);
+	};
+
+	const onDnDStart = (event) => draggedElement = event.currentTarget;
+
+	const onDrop = (event) => {
+		if (!draggedElement) return;
+		event.preventDefault();
+
+		// "swap" elements
+		const targ = event.currentTarget;
+		const targClone = targ.cloneNode(true);
+		const dragClone = draggedElement.cloneNode(true);
+
+		targ.replaceWith(dragClone);
+		draggedElement.replaceWith(targClone);
+
+		addDnDEvents(targClone);
+		addDnDEvents(dragClone);
+
+		draggedElement = undefined;
+
+		// swap orderNumbers
+		let targTodoId = +targClone.querySelector('input[type="text"]').dataset.id;
+		let draggedTodoId = +dragClone.querySelector('input[type="text"]').dataset.id;
+		let targTodo = todos.find( todo => todo.id === targTodoId);
+		let draggedTodo = todos.find( todo => todo.id === draggedTodoId);
+		let tempVar = targTodo.orderNumber;
+		targTodo.orderNumber = draggedTodo.orderNumber;
+		draggedTodo.orderNumber = tempVar;
+	};
+
+	todosForDragAndDrop.forEach( todo => addDnDEvents(todo));
+}
+/* drag and drop mechanism ----------------------- END */
+
 initFilters();
 showTodos();
