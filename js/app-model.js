@@ -141,7 +141,6 @@ themeSwitcherBtn.addEventListener('click', event => {
 	document.body.classList.remove(themes[indexOfCurrentTheme].name);
 	document.body.classList.add(themes[nextThemeIndex].name);
 	// change theme icon
-	themeIconImg.src = themes[indexOfCurrentTheme].icon;
 	themeIconImg.src = themes[nextThemeIndex].icon;
 });
 /* theme switcher ---------------------------------- END */
